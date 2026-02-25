@@ -12,7 +12,11 @@ export default function TaskItem({ task, onToggle, onDelete }) {
 
         {/* TODO (TASK 4): Checkbox calls onToggle(task.id) on change
             Also make it reflect task.isDone using checked={task.isDone} */}
-        <input type="checkbox" />
+        <input
+  type="checkbox"
+  checked={task.isDone}
+  onChange={() => onToggle(task.id)}
+/>
 
         {/* TODO (TASK 2): Display the task title
             Example:
@@ -21,9 +25,13 @@ export default function TaskItem({ task, onToggle, onDelete }) {
       </label>
 
       {/* TODO (TASK 4): Delete button calls onDelete(task.id) on click */}
-      <button className="ghost" aria-label="Delete task">
-        ✕
-      </button>
+      <button
+  className="ghost"
+  aria-label="Delete task"
+  onClick={() => onDelete(task.id)}
+>
+  ✕
+</button>
     </li>
   );
 }
